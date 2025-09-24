@@ -14,18 +14,18 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Conexão com o banco
-const db = new sqlite3.Database("./database.db", (err) => {
-    if (err) {
-        console.error("Erro ao conectar no banco:", err.message);
-    } else {
-        console.log("Banco de dados conectado!");
-        db.run(`CREATE TABLE IF NOT EXISTS produtos (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome TEXT,
-            preco REAL
-        )`);
-    }
-});
+// const db = new sqlite3.Database("./database.db", (err) => {
+//  if (err) {
+//      console.error("Erro ao conectar no banco:", err.message);
+//  } else {
+//      console.log("Banco de dados conectado!");
+//      db.run(`CREATE TABLE IF NOT EXISTS produtos (
+//          id INTEGER PRIMARY KEY AUTOINCREMENT,
+//          nome TEXT,
+//          preco REAL
+//      )`);
+//  }
+// });
 
 // Rota inicial da API
 app.get("/api", (req, res) => {
@@ -36,3 +36,4 @@ app.get("/api", (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
+
